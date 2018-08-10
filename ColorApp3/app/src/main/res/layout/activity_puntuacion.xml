@@ -10,14 +10,16 @@
     <ImageView
         android:id="@+id/btnHomeP"
         android:layout_width="107dp"
-        android:layout_height="105dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/home"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home"
+        android:onClick="salir"/>
 
     <ImageView
         android:id="@+id/imageView7"
@@ -36,24 +38,23 @@
         android:id="@+id/txtOro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/aldrich"
-        android:text="TextView"
         android:textColor="@color/colorAmarillo"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="86dp"
         android:layout_height="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toStartOf="@+id/txtOro"
-        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="@drawable/oro" />
@@ -88,7 +89,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnHomeP"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.448"
+        app:layout_constraintVertical_bias="0.13"
         app:srcCompat="@drawable/cuarto" />
 
     <TextView
@@ -99,7 +100,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/aldrich"
-        android:text="TextView"
         android:textColor="@color/colorAmarillo"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +115,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/aldrich"
-        android:text="TextView"
         android:textColor="@color/colorAmarillo"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +131,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/aldrich"
-        android:text="TextView"
         android:textColor="@color/colorAmarillo"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnHomeP"
@@ -140,6 +138,6 @@
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toBottomOf="@+id/txtBronce"
-        app:layout_constraintVertical_bias="0.757" />
+        app:layout_constraintVertical_bias="0.36" />
 
 </android.support.constraint.ConstraintLayout>
