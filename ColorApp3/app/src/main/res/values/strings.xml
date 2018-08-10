@@ -6,4 +6,6 @@
     <string name="correctas">Correctas</string>
     <string name="porcentaje">Porcentaje</string>
     <string name="incorrectas">Incorrectas</string>
+    <string name="estilodejuego">Estilo de Juego</string>
+    <string name="tiempodepalabra">Tiempo de la palabra</string>
 </resources>

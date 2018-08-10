@@ -1,6 +1,7 @@
 package com.aprendiz.ragp.colorapp3.controllers;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Juego extends AppCompatActivity implements View.OnClickListener{
+public class JuegoC extends AppCompatActivity implements View.OnClickListener{
     TextView txtCorrectas, txtIncorrectas, txtPorcentaje, txtTiempo, txtPalabra;
     ImageButton btnColor1, btnColor2, btnColor3, btnColor4;
     ProgressBar pbTiempo;
@@ -25,11 +26,12 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
     List<Integer> listaColoresTmp = new ArrayList<>();
     int ipR, icR;
     boolean bandera = true;
-    int ab=0, valorcito=0;
+    int ab=0, valorcito=0, modo=0, tiempo;
+    SharedPreferences juegoC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_juego);
+        setContentView(R.layout.activity_juego_c);
         inizialite();
         inputList();
         inputValues();
@@ -80,11 +82,19 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
         incorrectas=0;
         porcentaje=0;
         intentos=0;
-        segundos= new int[]{0,30};
+        juegoC = getSharedPreferences("juegoC",MODE_PRIVATE);
+        modo = juegoC.getInt("modo",1);
+        tiempo = juegoC.getInt("tiempo",3);
+        if (modo==1){
+            segundos= new int[]{0,30};
+        }else {
+            segundos= new int[]{0,0};
+        }
         bandera=true;
         pbTiempo.setMax(segundos[1]);
         ab=0;
         valorcito=0;
+
     }
 
 
@@ -148,7 +158,11 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
                         @Override
                         public void run() {
                             segundos[0]++;
-                            segundos[1]--;
+                            if (modo==1) {
+                                segundos[1]--;
+                            }else {
+                                segundos[1]++;
+                            }
                             txtTiempo.setText("Tiempo "+segundos[1]);
                             pbTiempo.setProgress(segundos[1]);
                             if (segundos[0]==3){
@@ -174,11 +188,11 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void endGame() {
-        if (ab==0&& (segundos[1]==0|| incorrectas==3)){
-            Intent intent = new Intent(Juego.this,Resumen.class);
+        if (ab==0&& ( (modo==1 &&(segundos[1]==0|| incorrectas==3))) || (modo==2 && incorrectas==3) ){
+            ab=1;
+            Intent intent = new Intent(JuegoC.this,Resumen.class);
             startActivity(intent);
             finish();
-            ab=1;
             bandera=false;
         }
     }
@@ -255,4 +269,6 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
         super.onDestroy();
         bandera=false;
     }
+
+
 }
