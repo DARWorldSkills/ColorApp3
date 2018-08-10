@@ -12,8 +12,7 @@
 
         <activity
             android:name=".controllers.Splash"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">>
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +20,6 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
         <activity
             android:name=".controllers.Juego"
             android:screenOrientation="portrait" />
@@ -36,7 +32,13 @@
         <activity
             android:name=".controllers.Configuracion"
             android:screenOrientation="portrait" />
-        <activity android:name=".controllers.JuegoC"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".controllers.Puntuacion"></activity>
+
     </application>
 
 </manifest>
