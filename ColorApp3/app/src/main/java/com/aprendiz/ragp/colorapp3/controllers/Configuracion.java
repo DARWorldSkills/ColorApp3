@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.aprendiz.ragp.colorapp3.R;
 
@@ -26,10 +27,12 @@ public class Configuracion extends AppCompatActivity {
         btnJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                saveData();
             }
         });
     }
+
+
 
     private void inputData() {
         int modo = juegoC.getInt("modo",1);
@@ -52,5 +55,38 @@ public class Configuracion extends AppCompatActivity {
         txtTiempoP = findViewById(R.id.txtTiempoP);
         btnJugar = findViewById(R.id.btnJugar);
 
+    }
+
+    private void saveData() {
+        int modo=1;
+        int tiempo=3;
+        if (btnTiempo.isChecked()){
+            modo=1;
+        }
+
+        if (btnIntentos.isChecked()){
+            modo=2;
+        }
+
+        try {
+            int tmp = Integer.parseInt(txtTiempoP.getText().toString());
+            if (tiempo>0 && tiempo<11){
+                tiempo=tmp;
+
+            }else {
+                tiempo = juegoC.getInt("tiempo",3);
+                Toast.makeText(this, "El valor del tiempo tiene que ser mayor a 0 y menor a 11. \n No se guardará el tiempo ingresado.", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }catch (Exception e){
+            Toast.makeText(this, "Se han ingresado caracteres desconocidos. \n Se jugará de todas formas", Toast.LENGTH_SHORT).show();
+        }
+
+
+        SharedPreferences.Editor editor = juegoC.edit();
+        editor.putInt("modo",modo);
+        editor.putInt("tiempo",tiempo);
+        editor.commit();
     }
 }
