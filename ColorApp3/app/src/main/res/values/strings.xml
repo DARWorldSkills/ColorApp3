@@ -10,4 +10,7 @@
     <string name="pcorrectas">Palabras Correctas</string>
     <string name="pincorrectas">Palabras Incorrectas</string>
     <string name="pporcentaje">Porcentaje de reacciòn</string>
+
+    <string name="estilodejuego">Estilo de Juego</string>
+    <string name="tiempodepalabra">Tiempo de la palabra</string>
 </resources>
