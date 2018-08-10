@@ -126,6 +126,7 @@
             android:layout_width="34dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="salir"
             android:background="@drawable/home"
             tools:layout_editor_absoluteX="66dp"
             tools:layout_editor_absoluteY="395dp" />
@@ -133,12 +134,14 @@
         <ImageButton
             android:id="@+id/btnTwi"
             android:layout_width="101dp"
+            android:onClick="twi"
             android:layout_height="match_parent"
             android:background="@drawable/twi" />
 
         <ImageButton
             android:id="@+id/btnFace"
             android:layout_width="104dp"
+            android:onClick="face"
             android:layout_height="match_parent"
             android:layout_marginBottom="6dp"
             android:background="@drawable/face" />
